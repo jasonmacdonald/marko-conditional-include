@@ -1,0 +1,23 @@
+class {
+    onCreate(){
+        this.state = {component: '', show:false};
+    }
+    logComp(){
+        this.state.component = this.getComponent('myKey');
+        console.log("'myKey' returns component", this.state.component);
+    }
+    toggle(val){
+        // uncomment these two lines and everything works.
+        //this.forceUpdate();
+        //this.update();
+
+    }
+}
+
+<div>
+    <outer onToggle('toggle')>
+        <inner key="myKey" onGetComp('logComp')>test</inner>
+    </outer>
+    <div if(state.component)>Got component for key ${state.component.id}</div>
+    <div else-if(state.component === undefined)>MyKey returned no component</div>
+</div>

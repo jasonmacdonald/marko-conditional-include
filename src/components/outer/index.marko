@@ -1,0 +1,16 @@
+class {
+    onCreate(input){
+        this.state = {show:false};
+    }
+    toggle(){
+        this.state.show = !this.state.show;
+        this.emit('toggle', this.state.show);
+    }
+}
+<div>
+    <div if(state.show)>
+        <include(input.renderBody) />
+    </div>
+    <br/>
+    <button onClick('toggle')>Click</button>
+</div>
